@@ -428,7 +428,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return({'&':'&amp
 function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
 
 /* ================= content ================= */
-var CAP={p01:'even tired, you are my favorite sight',p02:'my favorite place is wherever you are',p03:'your laugh is the sound of home',p04:'this face is my peace',p05:'I could stay in this moment forever',p06:'my Bebuski, my home',p07:'you make ordinary days taste sweet',p08:'four little frames, one big forever',p09:'every table is better with you across it',p10:'you make me stronger than I knew I could be',p11:'I love us at our silliest',p12:'even at the gym, you are my favorite person',p13:'to you, my greatest blessing',p14:'the whole city lights up when you are in it',p15:'walking beside you is my favorite path',p16:'my sunshine on the longest days',p17:'I would watch you eat noodles forever',p18:'any road is home with you',p19:'you make everything bloom',p20:'dressed up, and you still steal my breath',p21:'just us, exactly where I want to be',p22:'your pout is my weakness and my favorite',p23:'ordinary days, golden because of you',p24:'I never want to let go of this',p25:'you make me dance through life',p26:'silly faces, and a love that is serious',p27:'you are my favorite view, and nothing comes close',p28:'movie night, but I watched you'};
+var CAP={p01:'even tired, you are my favorite sight',p02:'my favorite place is wherever you are',p03:'your laugh is the sound of home',p04:'this face is my peace',p05:'I could stay in this moment forever',p06:'my Bebuski, my home',p07:'you make ordinary days taste sweet',p08:'four little frames, one big forever',p09:'every table is better with you across it',p10:'you make me stronger than I knew I could be',p11:'I love us at our silliest',p12:'even at the gym, you are my favorite person',p13:'to you, my greatest blessing',p14:'the whole city lights up when you are in it',p15:'walking beside you is my favorite path',p16:'my sunshine on the longest days',p17:'I would watch you eat noodles forever',p18:'any road is home with you',p19:'you make everything bloom',p20:'dressed up, and you still steal my breath',p21:'just us, exactly where I want to be',p22:'your pout is my weakness and my favorite',p23:'ordinary days, golden because of you',p24:'I never want to let go of this',p25:'you make me dance through life',p26:'silly faces, and a love that is serious',p27:'you are my favorite view, and nothing comes close',p28:'movie night, but I watched you',p29:'your face, close enough to fall in love all over again',p30:'four little frames, and I would keep every one',p31:'a golden afternoon, and you across from me',p32:'my favorite person, in my favorite light',p33:'held, right in the middle of an ordinary day',p34:'a rose that never fades, like us',p35:'I could look at this face forever',p36:'your joy is my favorite gift',p37:'working so hard, and I am so proud of you',p38:'peeking out at me, and my heart still jumps',p39:'you light up even the cloudiest day',p40:'even in the dark, you glow',p41:'I would find you in any crowd',p42:'cozy, silly, and completely mine'};
 function P(id){return 'media/'+id+'.jpg'}
 var LETTER=[
  {t:'stamp'},
@@ -445,6 +445,7 @@ var LETTER=[
  {t:'p',x:'You are one of the sweetest blessings God has brought into my life, and I am truly grateful that I get to call you mine. I pray that He keeps guiding us, helps us grow, and prepares us for the future we are dreaming about together.'},
  {t:'ph',side:'r',r:-2,i:[['p27','you, a river, and my whole heart']]},
  {t:'p',x:'I want to celebrate your wins, comfort you when life gets hard, laugh with you over the dumbest things, and keep falling in love with you in ways we have not even found yet.'},
+ {t:'pair',i:[['p37','working so hard, and I am so proud of you',-2],['p34','a rose that never fades, like us',2.5]]},
  {t:'pair',i:[['p03','your laugh is the sound of home',-2],['p11','mask night, no regrets',3]]},
  {t:'p',x:'It is you and me, my love. Let us keep protecting what we have and keep building something beautiful together.',heart:'It is you and me'},
  {t:'sign'}
@@ -496,7 +497,7 @@ function renderLater(){
   }).join('');
 }
 renderLater();
-var ORDER=['p05','p02','p08','p07','p13','p09','p11','p03','p10','p15','p16','p14','p17','p12','p28','p24','p21','p25','p27','p23','p19','p18','p20','p22','p26','p04','p01','p06'];
+var ORDER=['p05','p02','p08','p07','p13','p09','p11','p03','p10','p15','p16','p14','p17','p12','p28','p24','p21','p25','p27','p23','p19','p18','p20','p22','p26','p04','p01','p06','p30','p33','p34','p36','p29','p31','p32','p35','p37','p38','p39','p40','p41','p42'];
 var ROT=[-1.6,1.2,-.8,1.8,-1.2,.9,-1.9,1.4];
 $('#mason').innerHTML=ORDER.map(function(id,i){return '<figure data-i="'+i+'" style="--r:'+ROT[i%ROT.length]+'deg"><img src="'+P(id)+'" alt="'+esc(CAP[id])+'" loading="lazy"><figcaption>'+esc(CAP[id])+'</figcaption></figure>'}).join('');
 
