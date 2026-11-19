@@ -224,6 +224,23 @@ details.env .body .hand{font-size:1.5rem;color:var(--rose)}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 footer{padding-block:2rem 3rem;text-align:center;color:var(--dim);font-size:.9rem}
 
+.dict h2,.love h2{font-size:clamp(2.1rem,6.5vw,3.6rem)}
+.dd{margin:0;display:grid;gap:0}
+.dd>div{padding:1.4rem 0;border-top:1px solid var(--line)}
+.dd>div:last-child{border-bottom:1px solid var(--line)}
+.dd dt{font:italic 400 clamp(1.7rem,5vw,2.4rem)/1.1 var(--display)}
+.dd dt i{font:300 .9rem var(--body);font-style:normal;color:var(--gold);letter-spacing:.06em;margin-left:.7rem;white-space:nowrap}
+.dd dd{margin:.5rem 0 0;max-width:34rem;color:var(--ink)}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:1.4rem}
+.tap{display:grid;gap:1.2rem;align-content:start}
+.tap .out{margin:0;min-height:7.5rem;font:italic 400 clamp(1.5rem,4.4vw,2rem)/1.25 var(--display);color:var(--glow);display:flex;align-items:center}
+.tap .out.swap{animation:rise .7s ease both}
+.tap .acts{margin-top:0}
+.tap small{color:var(--dim)}
+.more{margin:.2rem 0;color:var(--dim);font-style:italic}
+.opened-label{margin-top:1.2rem}
+.fh{position:fixed;z-index:45;pointer-events:none;color:var(--rose);animation:fh 1.7s ease-out forwards}
+@keyframes fh{from{opacity:1;transform:translate(0,0) scale(.6)}to{opacity:0;transform:translate(var(--dx,0),-150px) scale(1.3)}}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -297,6 +314,23 @@ footer{padding-block:2rem 3rem;text-align:center;color:var(--dim);font-size:.9re
     </div>
   </section>
 
+  <!-- dictionary -->
+  <section class="dict">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Words only we know</span>
+        <h2>The Bebuski dictionary</h2>
+      </div>
+      <dl class="dd">
+        <div><dt>Bebuski <i>/beh-BOO-skee/ noun</i></dt><dd>1. The girl who started as Mabel and became everything. 2. Home. 3. A word only we say, and nobody says it the way we do.</dd></div>
+        <div><dt>Baymax <i>/BAY-maks/ noun</i></dt><dd>The one who shows up with a hug and stays for everything after. Title held by Benjamim since the day she gave it to him.</dd></div>
+        <div><dt>Yapping <i>/YAP-ing/ verb</i></dt><dd>Endless, loud, wonderful talking. Never to be stopped. Always to be listened to.</dd></div>
+        <div><dt>Stubborn <i>/STUB-ern/ adjective</i></dt><dd>1. Her, at full power. 2. The reason she is brave. See also: right, sometimes.</dd></div>
+        <div><dt>Forever <i>/for-EV-er/ adverb</i></dt><dd>Starting June 11. Still counting.</dd></div>
+      </dl>
+    </div>
+  </section>
+
   <!-- videos -->
   <section class="vid">
     <div class="wide">
@@ -352,6 +386,29 @@ footer{padding-block:2rem 3rem;text-align:center;color:var(--dim);font-size:.9re
     </div>
   </section>
 
+  <!-- little extras -->
+  <section class="love">
+    <div class="wide">
+      <div class="head">
+        <span class="label">Just because</span>
+        <h2>A little more love</h2>
+        <p>Two things to tap whenever you want me close.</p>
+      </div>
+      <div class="duo">
+        <div class="paper tap">
+          <span class="label">Reasons I love you</span>
+          <p class="out" id="rtext" aria-live="polite">Tap, and I will tell you one.</p>
+          <div class="acts"><button class="btn solid" id="rbtn">Tap for a reason</button><small id="rcount"></small></div>
+        </div>
+        <div class="paper tap">
+          <span class="label">Our date jar</span>
+          <p class="out" id="dtext" aria-live="polite">Tap, and the jar will pick our next date.</p>
+          <div class="acts"><button class="btn solid" id="dbtn">Pick a date</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- open when -->
   <section class="notes">
     <div class="wrap">
@@ -369,7 +426,7 @@ footer{padding-block:2rem 3rem;text-align:center;color:var(--dim);font-size:.9re
       <div class="head">
         <span class="label">This page keeps growing</span>
         <h2>Letters for later</h2>
-        <p>Sealed until the day they are meant for. They open by themselves.</p>
+        <p>A new letter opens by itself on the 11th of every month, and a few big ones wait for the years.</p>
       </div>
       <div class="envs" id="later"></div>
     </div>
@@ -458,13 +515,7 @@ var NOTES=[
  ['Open when life gets hard','I cannot fix everything, but I will never let you carry it alone. Rest on me. I will be your Baymax, like you named me.','rest on me'],
  ['Open when you doubt us','Read the line again: I choose you. That has not changed, and it will not. It is only you and me.','only you and me']
 ];
-var LATER=[
- [[2026,10,11],'Five months','Five months. I hope you have rolled your eyes at me at least a hundred times by now, and I hope you were still smiling after. Thank you for the little ordinary things: the yapping, the arguments we made up from, the plans we keep making. Still choosing you.'],
- [[2026,11,11],'Half a year','Half a year, Bebuski. We said we were getting close, and now we are here. I promised to keep working on myself and to show you with my actions what you mean to me. I am still working, and I am still here. Happy six months, my love.'],
- [[2027,5,11],'One year','One year. Twelve months of us, every one of them chosen. Whatever this year held, the sweet days and the hard ones, we are still holding hands. Thank you for staying, for loving me out loud, and for being the sweetest blessing God gave me. Here is to the next one, and the one after it.'],
- [[2028,5,11],'Two years','Two years. By now this page is a little time capsule, and you are still the best part of every photo in it. I hope we have new pictures, new jokes, and new names. Whatever else changed, I would still choose you all over again.'],
- [[2031,5,11],'Five years','Five years. If you are reading this, we kept our promise. Look at everything we built and everything we got through. I love you the same as the day I wrote the first line, and more for every day since. It is still you and me.']
-];
+var LATER=[[5, "Five months", "Five months. I hope you have rolled your eyes at me at least a hundred times by now, and I hope you were still smiling after. Thank you for the little ordinary things: the yapping, the arguments we made up from, the plans we keep making. Still choosing you."], [6, "Half a year", "Half a year, Bebuski. We said we were getting close, and now we are here. I promised to keep working on myself and to show you with my actions what you mean to me. I am still working, and I am still here. Happy six months, my love."], [7, "Seven months", "Seven months. I still catch myself smiling at nothing, and then I remember it is because of you. Thank you for making ordinary weeks feel like holidays. Keep being exactly this you."], [8, "Eight months", "Eight months, and I know your moods, your yapping rhythm, and the exact face you make when you are about to win an argument. I love learning you. I will never be finished, and I never want to be."], [9, "Nine months", "Nine months. Whatever this month looked like, the good days or the tired ones, I hope you felt me beside you. If you did not, I am right here, and I will say it louder: I am proud of you."], [10, "Ten months", "Ten months of us. When I think about the future now, I cannot picture it without you in it. I did not plan that, it just happened, and it is my favorite thing that has ever happened to me."], [11, "Eleven months", "Eleven months. Almost a year, Bebuski. Look how far we came from the first days. Whatever comes next, I want to walk into it holding your hand."], [12, "One year", "One year. Twelve months of us, every one of them chosen. Whatever this year held, the sweet days and the hard ones, we are still holding hands. Thank you for staying, for loving me out loud, and for being the sweetest blessing God gave me. Here is to the next one, and the one after it."], [13, "Thirteen months", "Thirteen months, the first month of our second year. A new chapter, same book, same girl, same boy who is still head over heels. I hope this chapter is gentler to you than the last. I will do my best to make it sweeter."], [14, "Fourteen months", "Fourteen months. I want you to know the small things you do do not go unnoticed: the way you check on me, the way you laugh at my worst jokes, the way you stay. I notice. I am grateful, every single time."], [15, "Fifteen months", "Fifteen months. Some days love is loud, and some days it is just two people being quiet in the same room. I love both kinds with you. Thank you for the quiet ones too."], [16, "Sixteen months", "Sixteen months. I hope you are being gentle with yourself today. You are doing better than you think, and you are loved more than you know. Take a breath. I have got you."], [17, "Seventeen months", "Seventeen months. Remember when we said we were not perfect? We still are not. We are just better at choosing each other, and that is the whole secret. Keep choosing me, and I will keep choosing you."], [18, "A year and a half", "A year and a half. Eighteen months of you. If I could send this letter back to the boy who first fell for you, I would tell him: hold on tight, it only gets sweeter."], [19, "Nineteen months", "Nineteen months. Thank you for the patience you give me when I do not deserve it. I am still growing, still learning, still trying to be the man you feel safe with. Every day, a little more."], [20, "Twenty months", "Twenty months. I hope something made you smile today, even a small thing. If nothing did, let this be the small thing: someone loves you so much it is a little ridiculous."], [21, "Twenty-one months", "Twenty-one months. Wherever life has taken us by now, I hope we still hold hands in the car and argue about silly things. Those are the best parts."], [22, "Twenty-two months", "Twenty-two months. We have been through so many ordinary days together, and they have become my favorite days. Thank you for turning the ordinary into ours."], [23, "Twenty-three months", "Twenty-three months. Almost two years. I am looking at all our pictures again right now, and every single one still makes my chest feel warm. You are my favorite memory in the making."], [24, "Two years", "Two years. By now this page is a little time capsule, and you are still the best part of every photo in it. I hope we have new pictures, new jokes, and new names. Whatever else changed, I would still choose you all over again."], [36, "Three years", "Three years. Over a thousand days of you, and I would not trade a single one, not the loud ones, not the quiet ones, not the ones where you were absolutely right. Thank you for building this with me."], [48, "Four years", "Four years. We keep saying forever, and every year it sounds a little less like a promise and a little more like a fact. I love you the way I did on day one, and then some."], [60, "Five years", "Five years. If you are reading this, we kept our promise. Look at everything we built and everything we got through. I love you the same as the day I wrote the first line, and more for every day since. It is still you and me."], [120, "Ten years", "Ten years, Bebuski. A whole decade. If this page still opens, then so does my heart, exactly as wide as it was the first time you smiled at me. Thank you for every year. Let us go get the next ten."]];
 var LOCK='<svg viewBox="0 0 26 30" aria-hidden="true"><rect x="3" y="13" width="20" height="14" rx="3"/><path d="M7.500 13V9a5.500 5.500 0 0 1 11 0v4"/></svg>';
 var ENV='<svg viewBox="0 0 30 22" aria-hidden="true"><rect x="1.5" y="2.5" width="27" height="17" rx="2"/><path d="M2 4l13 9.500L28 4"/></svg>';
 
@@ -488,13 +539,21 @@ L.innerHTML=html;
 $('#envs').innerHTML=NOTES.map(function(n){return '<details class="env"><summary>'+ENV+'<span>'+esc(n[0])+'</span><i></i></summary><div class="body"><p>'+esc(n[1])+'</p><div class="hand">'+esc(n[2])+'</div></div></details>'}).join('');
 
 function renderLater(){
-  var now=new Date();
-  $('#later').innerHTML=LATER.map(function(l){
-    var d=new Date(l[0][0],l[0][1],l[0][2]),when=d.toLocaleDateString('en',{year:'numeric',month:'long',day:'numeric'});
-    if(now>=d)return '<details class="env"><summary>'+ENV+'<span>'+esc(l[1])+'</span><i></i></summary><div class="body"><p>'+esc(l[2])+'</p><div class="hand">'+esc(when)+'</div></div></details>';
-    var left=Math.ceil((d-now)/864e5);
-    return '<div class="env locked">'+LOCK+'<div><b>'+esc(l[1])+'</b><small>Opens '+esc(when)+' &middot; in '+left+(left===1?' day':' days')+'</small></div></div>';
-  }).join('');
+  var now=new Date(),open=[],locked=[];
+  LATER.forEach(function(l){var d=ann(l[0]);(now>=d?open:locked).push([d,l])});
+  open.reverse();
+  function when(d){return d.toLocaleDateString('en',{year:'numeric',month:'long',day:'numeric'})}
+  var h='';
+  locked.slice(0,3).forEach(function(x){
+    var left=Math.ceil((x[0]-now)/864e5);
+    h+='<div class="env locked">'+LOCK+'<div><b>'+esc(x[1][1])+'</b><small>Opens '+esc(when(x[0]))+' &middot; in '+left+(left===1?' day':' days')+'</small></div></div>';
+  });
+  if(locked.length>3)h+='<p class="more">'+(locked.length-3)+' more letters are sealed, each one waiting for its own day.</p>';
+  if(open.length)h+='<span class="label opened-label">Already open</span>';
+  open.forEach(function(x){
+    h+='<details class="env"><summary>'+ENV+'<span>'+esc(x[1][1])+'</span><i></i></summary><div class="body"><p>'+esc(x[1][2])+'</p><div class="hand">'+esc(when(x[0]))+'</div></div></details>';
+  });
+  $('#later').innerHTML=h;
 }
 renderLater();
 var ORDER=['p05','p02','p08','p07','p13','p09','p11','p03','p10','p15','p16','p14','p17','p12','p28','p24','p21','p25','p27','p23','p19','p18','p20','p22','p26','p04','p01','p06','p30','p33','p34','p36','p29','p31','p32','p35','p37','p38','p39','p40','p41','p42'];
@@ -680,6 +739,38 @@ var Music=(function(){
   };
 })();
 document.addEventListener('visibilitychange',function(){Music.visible(!document.hidden)});
+
+/* ================= little extras ================= */
+var REASONS=['You make ordinary days feel golden.','You yap, and I would listen to every single word.','You are stubborn because you care, and I love that.','You laugh at my worst jokes.','You are patient with me when I do not deserve it.','You make me want to be softer, braver, and better.','You make silence feel comfortable.','You love me out loud.','You make me feel safe.','You believe in us.','You are my best friend and my favorite person at once.','You make any table, any drive, any gym feel like a date.','You are the sweetest blessing God sent me.','You are exactly who you are, and I would not change a thing.','Your smile fixes my whole day.','You pick me, even on the hard days.','You make home feel like a person.','You are gentle with the world and fierce with the people you love.','You make me laugh when I am tired.','You are my Mabel, my Bebuski, my everything.','You dress up and still make a silly face.','You push me to become the best man I can be.','You are the first thing I am grateful for.','You are you, and that was always enough for me.'];
+var DATES=['A matcha date by a big window, phones away.','Ramen night. You pick the toppings.','Sushi date. I will fight you for the last piece.','A long drive with our song playing.','The photo booth again, four brand new frames.','Movie night with far too many snacks.','Gym date, then a very big dinner.','A picnic by the river.','The fair, with ice cream.','Cook dinner together and burn something on purpose.','A golden hour walk with no destination.','Dress up and go somewhere fancy for no reason.','A thrift shop treasure hunt. You pick my outfit.','Stargazing with a blanket and hot chocolate.','Write each other a letter and read them out loud.','Stay in, pajamas on, our favorite show.','Dance in the kitchen.','A surprise day. You plan nothing, I plan everything.'];
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function floatHearts(btn,n){
+  if(RM)return;var r=btn.getBoundingClientRect();
+  for(var i=0;i<n;i++){
+    var h=document.createElement('span');h.className='fh';h.textContent='\u2665';
+    h.style.left=(r.left+Math.random()*r.width)+'px';h.style.top=(r.top+r.height*.3)+'px';
+    h.style.fontSize=(14+Math.random()*16)+'px';h.style.setProperty('--dx',((Math.random()-.5)*70)+'px');
+    h.style.animationDelay=(Math.random()*.3)+'s';
+    document.body.appendChild(h);
+    (function(el){setTimeout(function(){if(el.parentNode)el.parentNode.removeChild(el)},2200)})(h);
+  }
+}
+function swapText(el,t){el.classList.remove('swap');void el.offsetWidth;el.textContent=t;el.classList.add('swap')}
+var rDeck=[],rSeen=0;
+$('#rbtn').addEventListener('click',function(){
+  if(!rDeck.length){rDeck=shuffle(REASONS);rSeen=0}
+  var t=rDeck.pop();rSeen++;
+  swapText($('#rtext'),t);
+  $('#rcount').textContent=rSeen+' of '+REASONS.length;
+  floatHearts(this,6);
+  if(!rDeck.length)this.textContent='Hear them again';else this.textContent='Another one';
+});
+var dDeck=[];
+$('#dbtn').addEventListener('click',function(){
+  if(!dDeck.length)dDeck=shuffle(DATES);
+  swapText($('#dtext'),dDeck.pop());
+  floatHearts(this,5);this.textContent='Pick another';
+});
 
 /* ================= gate ================= */
 var gate=$('#gate'),lockbtn=$('#lockbtn');document.body.classList.add('locked');
