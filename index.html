@@ -402,7 +402,7 @@ footer{padding-block:2rem 3rem;text-align:center;color:var(--dim);font-size:.9re
     <div class="promise" id="promise">
       <div class="big">I choose you.</div>
       <p>Today, tomorrow, and on every day after. On the easy days and on the days that take patience. It is you and me, my love.</p>
-      <div class="hand" style="font-size:2.4rem">Happy 4 months, my forever girl. And every month after.</div>
+      <div class="hand" style="font-size:2.4rem"><span id="happy">Happy anniversary</span>, my forever girl. And every month after.</div>
       <span class="label">Benjamim &middot; your Baymax</span>
     </div>
   </section>
@@ -541,6 +541,7 @@ function count(){
   $('#cM').textContent=mo;$('#cD').textContent=d;$('#cH').textContent=pad(h);$('#cI').textContent=pad(mi);$('#cS').textContent=pad(s);
   var tot=Math.floor((now-START)/864e5);
   $('#total').textContent=tot.toLocaleString('en')+' days of you';
+  $('#happy').textContent=m>0?'Happy '+mlabel(m):'Happy new love';
   $('#eyebrow').textContent='June 11 \u00b7 '+(m>0?mlabel(m)+' and counting':'and counting');
   var next=ann(m+1),left=Math.ceil((next-now)/864e5);
   $('#lastm').textContent=m>0?mlabel(m)+' \u00b7 '+fmt(a):'June 11';
